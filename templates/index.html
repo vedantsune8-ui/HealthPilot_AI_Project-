@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row align-items-center">
+    <div class="col-md-6">
+        <h1 class="display-4">Welcome to HealthPilot AI</h1>
+        <p class="lead">Your intelligent healthcare assistant for preventive care and health awareness.</p>
+        <ul class="list-unstyled">
+            <li><i class="fas fa-check-circle text-success"></i> Disease prediction from symptoms</li>
+            <li><i class="fas fa-check-circle text-success"></i> BMI calculation & tracking</li>
+            <li><i class="fas fa-check-circle text-success"></i> Medicine reminders</li>
+            <li><i class="fas fa-check-circle text-success"></i> Health records & reports</li>
+            <li><i class="fas fa-check-circle text-success"></i> Admin monitoring panel</li>
+        </ul>
+        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+    <div class="col-md-6">
+        <img src="https://via.placeholder.com/500x300?text=HealthPilot+AI" class="img-fluid" alt="HealthPilot AI">
+    </div>
+</div>
+{% endblock %}

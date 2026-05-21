@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa;
+}
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.navbar-brand i {
+    margin-right: 8px;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #e9ecef;
+}
+@media print {
+    .navbar, .btn, .accordion-button {
+        display: none;
+    }
+}

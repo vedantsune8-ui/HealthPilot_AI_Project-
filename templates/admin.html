@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="accordion" id="adminAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#users">Users</button></h2>
+        <div id="users" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+                <table class="table"><thead><tr><th>ID</th><th>Username</th><th>Admin</th></tr></thead><tbody>
+                {% for u in users %}<tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.is_admin }}</td></tr>{% endfor %}
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#health">Health Records</button></h2>
+        <div id="health" class="accordion-collapse collapse">
+            <div class="accordion-body"><table class="table"><tr><th>ID</th><th>User</th><th>Date</th><th>Weight</th><th>BP</th><th>Blood Sugar</th></tr>
+            {% for hr in health_records %}<tr><td>{{ hr.id }}</td><td>{{ hr.user_id }}</td><td>{{ hr.date }}</td><td>{{ hr.weight }}</td><td>{{ hr.blood_pressure_systolic }}/{{ hr.blood_pressure_diastolic }}</td><td>{{ hr.blood_sugar }}</td></tr>{% endfor %}
+            </table></div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#reminders">Reminders</button></h2>
+        <div id="reminders" class="accordion-collapse collapse"><div class="accordion-body"><table class="table"><tr><th>ID</th><th>User</th><th>Medicine</th><th>Time</th><th>Frequency</th><th>Taken</th></tr>
+        {% for r in reminders %}<tr><td>{{ r.id }}</td><td>{{ r.user_id }}</td><td>{{ r.medicine_name }}</td><td>{{ r.time }}</td><td>{{ r.frequency }}</td><td>{{ r.is_taken }}</td></tr>{% endfor %}
+        </table></div></div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#predictions">Predictions</button></h2>
+        <div id="predictions" class="accordion-collapse collapse"><div class="accordion-body"><table class="table"><tr><th>ID</th><th>User</th><th>Symptoms</th><th>Prediction</th><th>Confidence</th><th>Date</th></tr>
+        {% for p in predictions %}<tr><td>{{ p.id }}</td><td>{{ p.user_id }}</td><td>{{ p.symptoms }}</td><td>{{ p.predicted_disease }}</td><td>{{ p.confidence }}%</td><td>{{ p.date }}</td></tr>{% endfor %}
+        </table></div></div>
+    </div>
+</div>
+{% endblock %}

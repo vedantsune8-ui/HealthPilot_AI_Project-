@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">Log Health Vitals</div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3"><label>Weight (kg)</label><input type="number" step="0.1" name="weight" class="form-control" required></div>
+                    <div class="mb-3"><label>Blood Pressure (Systolic)</label><input type="number" name="bp_systolic" class="form-control" required></div>
+                    <div class="mb-3"><label>Blood Pressure (Diastolic)</label><input type="number" name="bp_diastolic" class="form-control" required></div>
+                    <div class="mb-3"><label>Blood Sugar (mg/dL)</label><input type="number" name="blood_sugar" class="form-control" required></div>
+                    <div class="mb-3"><label>Notes</label><textarea name="notes" class="form-control"></textarea></div>
+                    <button type="submit" class="btn btn-success">Save Record</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

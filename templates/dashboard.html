@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ session.username }}</h2>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Latest Health Vitals</div>
+            <div class="card-body">
+                {% if latest_health %}
+                    <p>Weight: {{ latest_health.weight }} kg</p>
+                    <p>Blood Pressure: {{ latest_health.blood_pressure_systolic }}/{{ latest_health.blood_pressure_diastolic }}</p>
+                    <p>Blood Sugar: {{ latest_health.blood_sugar }} mg/dL</p>
+                    <p>Date: {{ latest_health.date }}</p>
+                {% else %}
+                    <p>No health records yet. <a href="{{ url_for('health_log') }}">Log now</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Upcoming Reminders</div>
+            <div class="card-body">
+                {% if reminders %}
+                    <ul class="list-group">
+                    {% for rem in reminders %}
+                        <li class="list-group-item">{{ rem.medicine_name }} ({{ rem.dosage }}) at {{ rem.time }} - {{ rem.frequency }}</li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No reminders. <a href="{{ url_for('reminders') }}">Add one</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
